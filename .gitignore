@@ -1,0 +1,11 @@
+# Text editor files
+*~
+*.swp
+
+# Mac nonsense
+.DS_Store
+
+# For git commit notifications and versioning
+.git-notifier*
+git-notifier.log
+.gitversion

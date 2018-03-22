@@ -1,0 +1,68 @@
+package:
+  name: cctbx_dependencies
+  version: 20180321           # YYYYMMDD
+
+requirements:
+  run:
+    # basics
+    - python >=2.7
+    - cython >=0.27
+    #- boost >=1.61
+    - numpy >=1.13
+
+    # Python 2/3 compatibility
+    - future >=0.16
+    - six >=1.11
+
+    # python
+    - biopython >=1.68
+    - ipython >=3.2.1
+    - scipy >=1.0
+
+    # testing
+    - junit-xml >=1.7
+    - mock >=2.0.0
+    - pytest >=3.4.1
+    - pytest-xdist >=1.22
+    - jinja2 >=2.9.6
+
+    # documentation
+    - docutils >=0.12
+    - numpydoc >=0.5
+    - sphinx >=1.4.9
+
+    # graphics
+    - matplotlib =2.2.2
+    - pillow >=4.2.1
+    - reportlab >=3.4
+    - libpng >=1.5
+    - libtiff >=4.0
+    - wxpython =3.0
+    - pyside2 =5.6
+
+    # HDF5
+    - hdf5 >=1.10.1
+    - h5py >=2.7.1
+
+    # other
+    - orderedset >=2.0
+    - scikit-learn >=0.19.1
+
+    # missing (will probably require our own conda packages)
+    # - libsvm
+    # - PyRTF
+    # - mpi4py (mpi libraries)
+    # - procrunner (currently just use pip install)
+    # - hdf5 plugins
+
+about:
+  home: https://github.com/bkpoon/cctbx_dependencies
+  summary: Metapackage for CCTBX dependencies
+  description: "This is a metapackage that just installs the dependencies for \
+    CCTBX. The conda-forge and bioconda channels are required."
+  doc_url: https://cctbx.github.io/
+  dev_url: https://github.com/cctbx/cctbx_project
+
+extra:
+  recipe-maintainers:
+    - bkpoon

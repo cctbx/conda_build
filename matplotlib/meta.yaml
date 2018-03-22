@@ -1,0 +1,90 @@
+{% set name = "matplotlib" %}
+{% set version = "2.2.2" %}
+{% set file_ext = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "4dc7ef528aad21f22be85e95725234c5178c0f938e2228ca76640e5e84d8cde8" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:                       # use default conda compilers
+    - {{ compiler('cxx') }}
+  host:
+    - python
+    - setuptools
+    - numpy >=1.7.1
+    - cycler >=0.10
+    - pyparsing >=2.0.1,!=2.0.4,!=2.1.2,!=2.1.6
+    - python-dateutil >=2.1
+    - pytz
+    - six >=1.10
+    - kiwisolver >=1.0.1
+    - backports.functools_lru_cache
+    - subprocess32
+    - wxpython =3.0.0         # add wxpython backend
+    - pyside2 =5.6            # add PySide2 backend
+  run:
+    - python
+    - numpy >=1.7.1
+    - cycler >=0.10
+    - pyparsing >=2.0.1,!=2.0.4,!=2.1.2,!=2.1.6
+    - python-dateutil >=2.1
+    - pytz
+    - six >=1.10
+    - kiwisolver >=1.0.1
+    - backports.functools_lru_cache
+    - subprocess32
+    - wxpython =3.0.0
+    - pyside2 =5.6
+
+test:
+  imports:
+    - matplotlib
+    - matplotlib.axes
+    - matplotlib.backends
+    - matplotlib.backends.qt_editor
+    - matplotlib.cbook
+    - matplotlib.compat
+    - matplotlib.projections
+    - matplotlib.sphinxext
+    - matplotlib.style
+    - matplotlib.testing
+    - matplotlib.testing._nose
+    - matplotlib.testing._nose.plugins
+    - matplotlib.testing.jpl_units
+    - matplotlib.tri
+    - mpl_toolkits
+    - mpl_toolkits.axes_grid
+    - mpl_toolkits.axes_grid1
+    - mpl_toolkits.axisartist
+    - mpl_toolkits.mplot3d
+
+about:
+  home: http://matplotlib.org
+  license: Python Software Foundation License
+  license_family: PSF
+  license_file: LICENSE/LICENSE
+  summary: Python plotting package
+  description: "matplotlib strives to produce publication quality 2D graphics \
+    for interactive graphing, scientific publishing, user interface development \
+    and web application servers targeting multiple user interfaces and hardcopy \
+    output formats.  There is a 'pylab' mode which emulates matlab graphics. \
+    This package differs from the default matplotlib package in that it uses \
+    wxPython and PySide2 for the backend and does not download PyQt."
+  doc_url: http://matplotlib.org/contents.html
+  dev_url: https://github.com/matplotlib/matplotlib/
+
+extra:
+  recipe-maintainers:
+    - bkpoon
