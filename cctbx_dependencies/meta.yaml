@@ -56,7 +56,7 @@ requirements:
     # - hdf5 plugins
 
 about:
-  home: https://github.com/bkpoon/cctbx_dependencies
+  home: https://github.com/cctbx/conda_build
   summary: Metapackage for CCTBX dependencies
   description: "This is a metapackage that just installs the dependencies for \
     CCTBX. The conda-forge and bioconda channels are required."
