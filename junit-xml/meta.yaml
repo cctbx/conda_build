@@ -1,0 +1,49 @@
+{% set name = "junit-xml" %}
+{% set version = "1.8" %}
+{% set file_ext = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "602f1c480a19d64edb452bf7632f76b5f2cb92c1938c6e071dcda8ff9541dc21" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  host:
+    - python
+    - setuptools
+    - six
+  run:
+    - python
+    - six
+
+test:
+  imports:
+    - junit_xml
+
+about:
+  home: https://github.com/kyrus/python-junit-xml
+  license: MIT License
+  license_family: MIT
+  license_file: LICENSE.txt
+  summary: Creates JUnit XML test result documents that can be read by tools such as Jenkins
+  description: "A Python module for creating JUnit XML test result documents \
+    that can be read by tools such as Jenkins. If you are ever working with \
+    test tool or\ntest suite written in Python and want to take advantage of \
+    Jenkins' pretty graphs and test reporting capabilities, this module will \
+    let you generate the XML test reports."
+  doc_url: https://github.com/kyrus/python-junit-xml
+  dev_url: https://github.com/kyrus/python-junit-xml
+
+extra:
+  recipe-maintainers:
+    - bkpoon
