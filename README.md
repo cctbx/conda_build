@@ -14,9 +14,6 @@ conda packages.
 `conda-forge` channel dependencies:
 - PySide2
 
-`bioconda` channel dependencies (probably roll into cctbx channel):
-- junit-xml
-
 ## Installation
 
 Modify your `~/.condarc` file so that it contains the following channels in
@@ -24,9 +21,12 @@ the following order.
 ```
 channels:
   - cctbx
-  - defaults
   - conda-forge
-  - bioconda
+  - defaults
 ```
 
 Run `conda install cctbx_dependencies`
+
+Alternatively, you can use the explicitly defined environments in
+`libtbx/conda_envs`. These environments do not require the channels to be
+set in your `~/.condarc` file.
