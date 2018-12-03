@@ -51,6 +51,7 @@ requirements:
     - orderedset >=2.0
     - scikit-learn >=0.19.1
     - tabulate
+    - tqdm =4.23.4
 
     # cctbx channel
     - py2app                            # [osx]
