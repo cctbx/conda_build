@@ -46,6 +46,7 @@ requirements:
     - hdf5_plugins                      # [unix]
 
     # other
+    - psutil
     - libsvm
     - orderedset >=2.0
     - scikit-learn >=0.19.1
