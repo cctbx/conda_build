@@ -39,6 +39,7 @@ requirements:
     - wxpython =3.0                     # [py2k]
     - wxpython                          # [py3k]
     #- pyside2 =5.6
+    - pyopengl =3.1.0
 
     # HDF5
     - hdf5 >=1.10
@@ -61,6 +62,9 @@ requirements:
     # control math library
     - nomkl                             # [unix]
     - openblas
+
+    # Phenix
+    - send2trash
 
     # missing (will build our own conda packages)
     # - PyRTF
