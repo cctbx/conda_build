@@ -60,7 +60,7 @@ requirements:
 
     # control math library
     - nomkl                             # [unix]
-    - openblas
+    - openblas                          # [unix]
 
     # Phenix
     - send2trash
