@@ -1,6 +1,9 @@
 package:
   name: cctbx_dependencies
-  version: 2019.02.12                   # YYYY.MM.DD
+  version: 2019.02.13                   # YYYY.MM.DD
+
+build:
+  number: 0
 
 requirements:
   run:
@@ -30,7 +33,7 @@ requirements:
     - sphinx >=1.4.9
 
     # graphics
-    - matplotlib >=2.0,<2.1
+    - matplotlib-base
     - pillow >=4.2.1
     - reportlab >=3.4
     #- libpng >=1.5
