@@ -38,6 +38,7 @@ requirements:
     - reportlab >=3.4
     #- libpng >=1.5
     #- libtiff >=4.0
+    - python.app                        # [osx]
     - wxpython
     #- pyside2 =5.6
     - pyopengl =3.1.0
