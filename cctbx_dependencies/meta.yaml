@@ -3,7 +3,7 @@ package:
   version: 2019.02.13                   # YYYY.MM.DD
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   run:
@@ -13,6 +13,10 @@ requirements:
     #- boost >=1.61
     - numpy >=1.13
     #- scons >=3
+
+    # select LLVM compatible with macOS Xcode
+    # https://en.wikipedia.org/wiki/Xcode#Latest_versions
+    - libcxx =4.0.1                    # [osx]
 
     # Python 2/3 compatibility
     - future >=0.16
