@@ -1,17 +1,17 @@
 package:
-  name: cctbx_dependencies
-  version: 2019.02.13                   # YYYY.MM.DD
+  name: cctbxlite-deps
+  version: 2019.09.01                   # YYYY.MM.DD
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   run:
     # basics
     #- python >=2.7
-    - cython >=0.27
+    - cython
     #- boost >=1.61
-    - numpy >=1.13
+    - numpy
     #- scons >=3
 
     # select LLVM compatible with macOS Xcode
@@ -19,39 +19,31 @@ requirements:
     - libcxx =4.0.1                    # [osx]
 
     # Python 2/3 compatibility
-    - future >=0.16
-    - six >=1.11
+    - future
+    - six
 
     # python
-    - biopython >=1.68
-    - ipython >=3.2.1
+    - biopython
+    - ipython
 
     # testing
-    - mock >=2.0.0
-    - pytest >=3.1,<4
-    - pytest-xdist >=1.22
+    - mock
+    - pytest
+    - pytest-xdist
 
     # documentation
-    - docutils >=0.12
-    - numpydoc >=0.5
-    - sphinx >=1.4.9
+    - docutils
+    - numpydoc
+    - sphinx
 
     # graphics
     - matplotlib-base
-    - pillow >=4.2.1
-    - reportlab >=3.4
-    #- libpng >=1.5
-    #- libtiff >=4.0
+    - pillow
+    - reportlab
     - python.app                        # [osx]
     - gtk2                              # [linux]
     - wxpython
-    #- pyside2 =5.6
     - pyopengl =3.1.0
-
-    # HDF5
-    - hdf5 >=1.10
-    - h5py >=2.7.1
-    - hdf5_plugins                      # [unix]
 
     # other
     - libsvm
@@ -63,27 +55,49 @@ requirements:
     - libsvm_py
     #- hdf5_plugins                      # [unix]
 
-    # dials
-    - jinja2 >=2.9.6
-    - msgpack-c >=3.1.1
-    - msgpack-python >=0.6
-    - orderedset >=2.0
-    - procrunner
-    - python-blosc >=1.7
-    - scikit-learn >=0.19.1
-    - scipy >=1.0
-    - tqdm =4.23.4
-
-    # xia2
-    - tabulate
-
     # control math library
     - nomkl                             # [unix]
     - openblas                          # [unix]
 
-    # Phenix
-    - send2trash
-    - PyRTF
+    # # dials
+    # - jinja2 >=2.9.6
+    # - msgpack-c >=3.1.1
+    # - msgpack-python >=0.6
+    # - orderedset >=2.0
+    # - procrunner
+    # - python-blosc >=1.7
+    # - scikit-learn >=0.19.1
+    # - scipy >=1.0
+    # - tqdm =4.23.4
+
+    # # xia2
+    # - tabulate
+
+    # # Phenix
+    # - send2trash
+    # - PyRTF
+
+test:
+  imports:
+    - numpy
+    - six
+
+outputs:
+  - name: cctbxlite-deps
+
+  - name: cctbx-deps
+    requirements:
+      run:
+        - {{ pin_subpackage('cctbxlite-deps', exact=True) }}
+
+        # HDF5
+        - hdf5
+        - h5py
+        - hdf5_plugins                      # [unix]
+
+        # other
+        - pyzmq
+        - websocket-server
 
 about:
   home: https://github.com/cctbx/conda_build
