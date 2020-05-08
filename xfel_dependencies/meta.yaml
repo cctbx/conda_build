@@ -8,7 +8,7 @@ build:
 requirements:
   run:
     # basics
-    #- python >=2.7
+    - python = 2.7.15
     - cython >=0.27
     #- boost >=1.61
     #- numpy >=1.13 # comes with psana
